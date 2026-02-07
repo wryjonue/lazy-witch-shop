@@ -1,0 +1,4 @@
+repository "LazyWitchShop/LazyWitchShop@18968376368774@cloud"
+  path "/"
+    br "/main"
+    co "/main"
