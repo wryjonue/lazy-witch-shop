@@ -2,6 +2,8 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+LazyWitchShop_BackUpThisFolder_ButDontShipItWithYourGame/
+LazyWitchShop_BurstDebugInformation_DoNotShip/
 .plastic/
 .utmp/
 /[Ll]ibrary/
