@@ -1,10 +1,14 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // Must have this
+using UnityEngine.InputSystem;
+using UnityEngine.UI; // Must have this
 
 public class PlayerMovement : MonoBehaviour {
+    
     public float moveSpeed = 5f;
     public GameObject shopPanel;
     public GameObject carpet;
+    public Button actionButton;
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator anim;
@@ -32,17 +36,27 @@ public class PlayerMovement : MonoBehaviour {
             spriteRenderer.flipX = false;
         }
     }
-
+    private bool actionButtonActive = false;
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject == carpet) {
-            shopPanel.SetActive(true);
-
+            actionButton.gameObject.SetActive(true);
+            actionButtonActive = true;
+            actionButton.onClick.AddListener(() => {
+                Debug.Log("Hello?");
+                shopPanel.SetActive(true);
+            });
             Debug.Log("Well at least something happened");
         } else {
             Debug.Log("At least something happened");
         }
     }
-
+    private void OnTriggerExit2D(Collider2D other) {
+        if (actionButtonActive) {
+            actionButton.gameObject.SetActive(false);
+            actionButtonActive = false;
+        }
+        
+    }
     void RunCarpetFunction() {
         
     }
